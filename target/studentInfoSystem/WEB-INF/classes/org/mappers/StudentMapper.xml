@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mappers.StudentMapper">
+
+<!--    //查询学生列表-->
+<!--    public List<Student> selectStudent();-->
+    <select id="selectStudent" resultType="student">
+        select * from student
+    </select>
+<!--    //添加学生-->
+<!--    public void addStudent(Student student);-->
+    <insert id="addStudent">
+        insert into student
+        values(#{id},#{name},#{gender},#{age},#{phone},#{cla})
+    </insert>
+
+
+<!--    public Student selectId(@Param("id")Integer id);-->
+    <select id="selectId" resultType="student">
+        select * from student where id=#{id}
+    </select>
+
+<!--    void update(Student student);-->
+    <update id="update">
+        update student set
+        name=#{name},gender=#{gender},age=#{age},phone=#{phone},cla=#{cla}
+        where id=#{id}
+    </update>
+
+<!--    //根据id删除学生-->
+<!--    void deleteStuById(@Param("id")Integer id);-->
+    <delete id="deleteStuById">
+        delete from student where id=#{id}
+    </delete>
+</mapper>

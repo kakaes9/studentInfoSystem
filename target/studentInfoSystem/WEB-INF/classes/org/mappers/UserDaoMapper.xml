@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mappers.UserDaoMapper">
+    <select id="selectUser" parameterType="String" resultType="user">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+
+<!--    //根据id查询用户是否存在-->
+<!--    public User selectId(@Param("id")int id);-->
+    <select id="selectId" resultType="user">
+        select  * from user where id=#{id}
+    </select>
+
+<!--    //添加用户-->
+<!--    public void addUser(User user);-->
+    <insert id="addUser">
+        insert into user values (#{id},#{username},#{password})
+    </insert>
+</mapper>
